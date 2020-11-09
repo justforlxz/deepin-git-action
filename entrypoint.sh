@@ -1,5 +1,7 @@
 #!/bin/bash
 
+repo=$1
+
 cat >> /etc/pacman.conf << EOF
 [deepingit]
 Server = https://packages.justforlxz.com/
