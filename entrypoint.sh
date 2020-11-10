@@ -12,7 +12,7 @@ pacman-key --lsign-key DCAF15B4605D5BEB
 pacman -Sy --noconfirm git clang pkgconfig
 
 git clone -b packages/${repo}-git https://github.com/justforlxz/deepin-git-repo
-pacman -Sy --noconfirm $(cat deepin-git-repo/PKGBUILD | grep -i "makedepends" | grep -Po '(?<=\().*(?=\))' | sed s#\'##g)
+pacman -Sy --noconfirm base-devel $(cat deepin-git-repo/PKGBUILD | grep -i "makedepends" | grep -Po '(?<=\().*(?=\))' | sed s#\'##g)
 source deepin-git-repo/PKGBUILD
 rm -rf deepin-git-repo
 export pkgname=${GITHUB_WORKSPACE}
