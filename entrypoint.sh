@@ -3,7 +3,7 @@
 repo=$1
 
 cat >> /etc/pacman.conf << EOF
-[deepingit]
+[archlinuxcn]
 Server = https://repo.archlinuxcn.org/$arch
 EOF
 
