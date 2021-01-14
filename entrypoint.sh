@@ -3,13 +3,13 @@
 repo=$1
 
 cat >> /etc/pacman.conf << EOF
+
+## Our main server (Amsterdam, the Netherlands) (ipv4, ipv6, http, https)
 [archlinuxcn]
-SigLevel = Never
-Server = https://mirrors.bfsu.edu.cn/archlinuxcn/$arch
+Server = https://repo.archlinuxcn.org/\$arch
 EOF
 
-pacman -Syu --noconfirm archlinuxcn-keyring
-pacman -Syy
+pacman -Syyu --noconfirm archlinuxcn-keyring
 
 git clone -b packages/${repo}-git https://github.com/justforlxz/deepin-git-repo
 pacman -Sy --noconfirm base-devel $(cat deepin-git-repo/PKGBUILD | grep -i "makedepends" | grep -Po '(?<=\().*(?=\))' | sed s#\'##g)
