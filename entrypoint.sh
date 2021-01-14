@@ -4,7 +4,8 @@ repo=$1
 
 cat >> /etc/pacman.conf << EOF
 [archlinuxcn]
-Server = https://repo.archlinuxcn.org/$arch
+SigLevel = Never
+Server = https://mirrors.bfsu.edu.cn/archlinuxcn/$arch
 EOF
 
 pacman -Syu --noconfirm archlinuxcn-keyring
