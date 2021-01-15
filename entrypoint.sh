@@ -2,6 +2,7 @@
 
 repo=$1
 BUILD_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+TELEGRAM_BOT_KEY="1574643767:AAFRHeh590So5EVFYnwLn8l3Va3rVAUlz0M"
 
 function send_message() {
     curl https://api.telegram.org/bot${TELEGRAM_BOT_KEY}/sendMessage?chat_id=@deepingitnews&text=$repo+\ +$BUILD_URL
