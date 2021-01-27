@@ -12,8 +12,8 @@ EOF
 pacman -Syyu --noconfirm archlinuxcn-keyring
 
 git clone -b packages/${repo}-git https://github.com/justforlxz/deepin-git-repo
-pacman -Sy --noconfirm base-devel $(cat deepin-git-repo/PKGBUILD | grep -i "makedepends" | grep -Po '(?<=\().*(?=\))' | sed s#\'##g)
 source deepin-git-repo/PKGBUILD
+pacman -Sy --noconfirm base-devel ${depends[@]} ${makedepends[@]}
 rm -rf deepin-git-repo
 export pkgname=${GITHUB_WORKSPACE}
 cd ${GITHUB_WORKSPACE}
